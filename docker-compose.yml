@@ -1,0 +1,56 @@
+version: '3.6'
+
+services:
+  zepalheta-postgres:
+    image: postgres
+    container_name: zepalheta-postgres
+    environment:
+      - NODE_ENV=development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qaninja
+      - POSTGRES_DB=zepalheta
+    ports:
+      - '5432:5432'
+    networks:
+      - zepalheta-network
+
+  zepalheta-pgadmin:
+    image: dpage/pgadmin4
+    container_name: zepalheta-pgadmin
+    ports:
+      - '15432:80'
+    environment:
+      - NODE_ENV=development
+      - PGADMIN_DEFAULT_EMAIL=root@qaninja.io
+      - PGADMIN_DEFAULT_PASSWORD=qaninja
+    networks:
+      - zepalheta-network
+
+  zepalheta-api:
+    image: qaninja/zp-api:v2
+    container_name: zepalheta-api
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=zepalheta-postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qaninja
+      - POSTGRES_DB=zepalheta
+    ports:
+      - '3333:3333'
+    networks:
+      - zepalheta-network
+
+  zepalheta-web:
+    image: qaninja/zp-web:v2
+    container_name: zepalheta-web
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    networks:
+      - zepalheta-network
+
+networks:
+  zepalheta-network:
+    name: zepalheta-network
+    driver: bridge

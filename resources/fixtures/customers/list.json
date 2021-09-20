@@ -1,0 +1,28 @@
+{
+    "data":[
+        {
+            "name":"Luzia Agatha Jéssica",
+            "cpf":"495.654.055-84",
+            "address":"Rua Inspetor Antônio Oliveira, 284",
+            "phone_number":"(96) 99616-7706"
+        },
+        {
+            "name": "André João Campos",
+            "cpf": "714.913.264-25",
+            "address": "Rua Seis, 323",
+            "phone_number": "(86) 9.8136-7557"
+        },
+        {
+            "name":"Agatha Pires de Azevedo",
+            "cpf":"627.537.540-04",
+            "address":"Rua Izidro Gama, 1283",
+            "phone_number":"(66) 97613-4709"
+        },
+        {
+            "name":"Rodolfo Borges Nata",
+            "cpf":"204.492.150-24",
+            "address":"Rua Antônio Coimbra, 284",
+            "phone_number":"(14) 99416-7756"
+        }
+    ]
+}
